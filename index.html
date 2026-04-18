@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camila Gámez — Data Analyst</title>
+<meta name="description" content="Data Analyst · Retail, E-commerce & Wellness. Python, SQL, Power BI. Bogotá, Colombia. 100% Remoto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:       #111827;
+  --ink-soft:  #374151;
+  --ink-muted: #6b7280;
+  --bg:        #f9f8f5;
+  --warm:      #f2f0ea;
+  --navy:      #0f172a;
+  --blue:      #1d4ed8;
+  --blue-lt:   #dbeafe;
+  --blue-mid:  #1e40af;
+  --teal:      #0f766e;
+  --teal-lt:   #ccfbf1;
+  --amber:     #b45309;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'Outfit', system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.7}
+
+.lang-switch{position:fixed;top:0;right:5vw;z-index:200;display:flex;height:36px;background:var(--navy)}
+.lang-btn{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:0 1rem;height:36px;border:none;cursor:pointer;background:transparent;color:rgba(249,248,245,.4);transition:color .2s,background .2s}
+.lang-btn.active{color:#fff;background:var(--blue)}
+.lang-btn:hover:not(.active){color:rgba(249,248,245,.75)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:.95rem 5vw;background:rgba(249,248,245,.97);backdrop-filter:blur(18px);border-bottom:1px solid rgba(17,24,39,.07)}
+.nav-logo{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+
+#hero{min-height:100vh;padding-top:64px;display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden}
+.hero-l{padding:5rem 3rem 5rem 7vw;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:.67rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem}
+.eyebrow::before{content:'';width:2rem;height:2px;background:var(--blue)}
+h1{font-family:var(--serif);font-size:clamp(2.8rem,4.8vw,5.2rem);line-height:1.03;letter-spacing:-.025em;color:var(--ink);margin-bottom:1.4rem}
+h1 em{font-style:italic;color:var(--blue)}
+.hero-p{font-size:.97rem;color:var(--ink-soft);max-width:440px;line-height:1.9;margin-bottom:1.8rem;font-weight:300}
+.hero-p strong{color:var(--ink);font-weight:500}
+
+.industry-row{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2rem}
+.ind-badge{font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .75rem}
+.ind-b1{background:var(--blue);color:#e0e7ff}
+.ind-b2{background:var(--teal);color:#ccfbf1}
+.ind-b3{background:#4f46e5;color:#e0e7ff}
+.ind-b4{background:#0d9488;color:#ccfbf1}
+.ind-b5{background:var(--blue-mid);color:#dbeafe}
+
+.cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.82rem 1.7rem;font-size:.76rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .22s;font-family:var(--sans)}
+.btn-dark{background:var(--navy);color:var(--bg)}
+.btn-dark:hover{background:var(--blue)}
+.btn-line{border:1.5px solid var(--navy);color:var(--navy)}
+.btn-line:hover{background:var(--navy);color:var(--bg)}
+.btn-teal{background:var(--teal);color:#ccfbf1}
+.btn-teal:hover{background:#0d9488}
+.btn-outline-teal{border:1.5px solid var(--teal);color:var(--teal)}
+.btn-outline-teal:hover{background:var(--teal);color:#ccfbf1}
+.btn-sm{padding:.6rem 1.2rem;font-size:.72rem}
+
+.hero-r{background:var(--navy);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:4rem 2.75rem 4rem 3rem}
+.hero-r::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(29,78,216,.28) 0%,transparent 55%),radial-gradient(ellipse at 85% 15%,rgba(15,118,110,.18) 0%,transparent 50%)}
+.hero-quote{position:relative;z-index:2;font-family:var(--serif);font-size:1.2rem;font-style:italic;color:rgba(249,248,245,.88);line-height:1.55;margin-bottom:1.75rem;border-left:2px solid var(--blue);padding-left:1.25rem}
+.hero-quote cite{display:block;font-style:normal;font-size:.67rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,248,245,.3);margin-top:.6rem}
+.stats{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.st{background:rgba(249,248,245,.04);border:1px solid rgba(249,248,245,.07);padding:1.25rem 1.1rem;transition:background .2s}
+.st:hover{background:rgba(249,248,245,.08)}
+.st-n{font-family:var(--serif);font-size:2rem;color:var(--bg);line-height:1;letter-spacing:-.02em;margin-bottom:.2rem}
+.st-n em{font-style:normal;color:#60a5fa}
+.st-l{font-size:.63rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(249,248,245,.36)}
+.stack-bar{position:relative;z-index:2;margin-top:2px;background:rgba(249,248,245,.03);border:1px solid rgba(249,248,245,.06);padding:.9rem 1.1rem;display:flex;flex-wrap:wrap;gap:.35rem}
+.pill{font-size:.63rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .55rem;background:rgba(249,248,245,.07);color:rgba(249,248,245,.48);border:1px solid rgba(249,248,245,.09)}
+
+section{padding:5.5rem 7vw}
+.s-label{font-size:.64rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.6rem;margin-bottom:.7rem}
+.s-label::before{content:'';width:1.5rem;height:2px;background:var(--blue)}
+h2{font-family:var(--serif);font-size:clamp(1.9rem,3.2vw,3.4rem);line-height:1.06;letter-spacing:-.025em;margin-bottom:1.1rem}
+h2 em{font-style:italic;color:var(--blue)}
+
+#story{background:var(--warm)}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.story-text p{font-size:.94rem;color:var(--ink-soft);font-weight:300;line-height:1.9;margin-bottom:1rem}
+.story-text p strong{color:var(--ink);font-weight:500}
+.callout{border-left:3px solid var(--blue);padding:.85rem 1.25rem;margin:1.6rem 0;font-family:var(--serif);font-size:1.08rem;font-style:italic;color:var(--ink);background:var(--bg);line-height:1.5}
+.story-r{display:flex;flex-direction:column;gap:1.1rem}
+.card{background:var(--bg);padding:1.4rem 1.5rem;border-left:2px solid var(--blue);position:relative}
+.card-t{font-size:.63rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem}
+
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none}
+.chips li{font-size:.78rem;font-weight:600;padding:.45rem .85rem;background:var(--navy);color:#e0e7ff;line-height:1.5;width:100%}
+.chips li span{display:block;font-weight:300;color:var(--bg);font-size:.72rem;margin-top:.15rem;opacity:.85}
+
+.tl{display:flex;flex-direction:column}
+.tl-i{display:flex;gap:.9rem;padding:.75rem 0;border-bottom:1px solid rgba(17,24,39,.08)}
+.tl-y{font-family:var(--serif);font-size:.82rem;color:var(--blue);min-width:44px;padding-top:1px;font-weight:600}
+.tl-r{font-size:.8rem;font-weight:500;color:var(--ink)}
+.tl-p{font-size:.72rem;color:var(--ink-muted);margin-top:.1rem}
+
+#projects{background:var(--bg)}
+.proj-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}
+.proj-header p{font-size:.94rem;color:var(--ink-soft);font-weight:300;line-height:1.85}
+.proj-list{display:flex;flex-direction:column;gap:2px}
+.proj-featured{background:var(--navy);padding:2.5rem;text-decoration:none;color:inherit;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start;position:relative;overflow:hidden;transition:transform .22s,box-shadow .22s}
+.proj-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+.proj-featured::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 85% 85%,rgba(29,78,216,.14) 0%,transparent 55%)}
+.proj-featured:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(15,23,42,.2)}
+.pf-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.63rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#60a5fa;margin-bottom:.85rem}
+.pf-badge::before{content:'★';font-size:.75rem}
+.pf-num{font-family:var(--serif);font-size:4rem;color:rgba(249,248,245,.04);line-height:1;letter-spacing:-.03em;position:absolute;top:1.5rem;right:2rem}
+.pf-ind{font-size:.63rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#60a5fa;margin-bottom:.3rem;position:relative;z-index:2}
+.pf-title{font-family:var(--serif);font-size:1.65rem;color:var(--bg);margin-bottom:.5rem;line-height:1.2;position:relative;z-index:2}
+.pf-desc{font-size:.87rem;color:var(--bg);font-weight:300;line-height:1.75;max-width:560px;margin-bottom:1rem;position:relative;z-index:2;opacity:.82}
+.pf-tags{display:flex;flex-wrap:wrap;gap:.35rem;position:relative;z-index:2}
+.pf-tag{font-size:.62rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .5rem;background:rgba(249,248,245,.1);color:var(--bg);border:1px solid rgba(249,248,245,.15);opacity:.75}
+.pf-metrics{display:flex;flex-direction:column;gap:.9rem;min-width:155px;position:relative;z-index:2}
+.pf-m-v{font-family:var(--serif);font-size:2rem;color:#60a5fa;line-height:1;letter-spacing:-.02em}
+.pf-m-l{font-size:.67rem;color:var(--bg);line-height:1.35;opacity:.5}
+
+.proj{display:grid;grid-template-columns:auto 1fr auto auto;gap:2rem;align-items:center;padding:1.75rem 2rem;background:var(--warm);border:1px solid rgba(17,24,39,.06);text-decoration:none;color:inherit;transition:transform .22s,box-shadow .22s;position:relative;overflow:hidden}
+.proj::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal);transform:scaleY(0);transform-origin:top;transition:transform .28s}
+.proj:nth-child(3)::before{background:var(--amber)}
+.proj:nth-child(4)::before{background:var(--blue)}
+.proj:nth-child(5)::before{background:var(--teal)}
+.proj:hover{transform:translateX(4px);box-shadow:4px 0 22px rgba(17,24,39,.07)}
+.proj:hover::before{transform:scaleY(1)}
+.p-num{font-family:var(--serif);font-size:2.6rem;color:rgba(17,24,39,.07);line-height:1;letter-spacing:-.03em;min-width:52px}
+.p-ind{font-size:.63rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.25rem}
+.proj:nth-child(3) .p-ind{color:var(--amber)}
+.proj:nth-child(4) .p-ind{color:var(--blue)}
+.proj:nth-child(5) .p-ind{color:var(--teal)}
+.p-title{font-family:var(--serif);font-size:1.22rem;color:var(--ink);margin-bottom:.35rem}
+.p-desc{font-size:.82rem;color:var(--ink-soft);font-weight:300;max-width:480px}
+.p-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem}
+.p-tag{font-size:.62rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .46rem;background:rgba(17,24,39,.05);color:var(--ink-muted)}
+.p-metrics{display:flex;flex-direction:column;gap:.6rem;min-width:130px;text-align:right}
+.p-m-v{font-family:var(--serif);font-size:1.6rem;color:var(--teal);line-height:1;letter-spacing:-.02em}
+.proj:nth-child(3) .p-m-v{color:var(--amber)}
+.proj:nth-child(4) .p-m-v{color:var(--blue)}
+.proj:nth-child(5) .p-m-v{color:var(--teal)}
+.p-m-l{font-size:.66rem;color:var(--ink-muted);line-height:1.3}
+.p-arr{font-size:1rem;color:var(--ink-muted);transition:color .2s,transform .2s}
+.proj:hover .p-arr{color:var(--blue);transform:translateX(3px)}
+
+#publications{background:var(--warm)}
+.pub-intro{font-size:.97rem;color:var(--ink-muted);text-align:center;max-width:680px;margin:0 auto 3rem;line-height:1.75;font-style:italic}
+.pub-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.pub-card{background:var(--bg);border:1px solid rgba(17,24,39,.08);padding:2rem 2rem 1.75rem;position:relative;transition:transform .22s,box-shadow .22s;display:flex;flex-direction:column}
+.pub-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(17,24,39,.1)}
+.pub-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.pub-card.blue-accent::before{background:var(--blue)}
+.pub-card.teal-accent::before{background:var(--teal)}
+.pub-badge{display:inline-flex;align-items:center;font-size:.63rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .65rem;margin-bottom:1rem;border:1px solid}
+.pub-badge.blue{background:var(--blue-lt);color:var(--blue-mid);border-color:rgba(29,78,216,.2)}
+.pub-badge.teal{background:var(--teal-lt);color:var(--teal);border-color:rgba(15,118,110,.2)}
+.pub-title{font-family:var(--serif);font-size:1.18rem;color:var(--ink);line-height:1.3;margin-bottom:.85rem}
+.pub-desc{font-size:.85rem;color:var(--ink-soft);font-weight:300;line-height:1.8;margin-bottom:1.5rem;flex:1}
+.pub-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto}
+
+#video{background:var(--navy);text-align:center;position:relative;overflow:hidden}
+#video::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 50%,rgba(29,78,216,.18) 0%,transparent 55%),radial-gradient(ellipse at 85% 50%,rgba(15,118,110,.14) 0%,transparent 55%)}
+#video .s-label{justify-content:center;position:relative;z-index:2}
+#video .s-label::before{display:none}
+#video h2{color:var(--bg);position:relative;z-index:2}
+.v-sub{font-size:.88rem;color:rgba(249,248,245,.42);font-weight:300;margin-bottom:2.5rem;position:relative;z-index:2}
+.v-frame-wrap{position:relative;z-index:2;display:flex;justify-content:center}
+.v-frame{width:min(340px,90vw);aspect-ratio:9/16;background:rgba(249,248,245,.05);border:1px solid rgba(249,248,245,.09);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;overflow:hidden}
+.v-frame iframe{width:100%;height:100%;border:none}
+.v-frame-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;width:100%;height:100%}
+.play{width:58px;height:58px;border:2px solid var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.play::after{content:'';width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid #60a5fa;margin-left:4px}
+.v-cap{font-size:.67rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(249,248,245,.28)}
+
+#skills{background:var(--warm);display:grid;grid-template-columns:1fr 2fr;gap:4.5rem;align-items:start}
+.skills-l p{font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.85;margin-bottom:1rem}
+.big-q{font-family:var(--serif);font-size:1.08rem;font-style:italic;color:#bfdbfe;background:var(--navy);padding:.9rem 1.2rem;margin:1.4rem 0;line-height:1.55;border-left:3px solid var(--teal)}
+.cert-note{font-size:.75rem;color:var(--ink-muted);font-weight:300}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem 2.5rem}
+.sg-t{font-size:.63rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.7rem;padding-bottom:.45rem;border-bottom:1px solid rgba(17,24,39,.09)}
+.sg-l{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.sg-l li{font-size:.83rem;color:var(--ink-soft);font-weight:300;display:flex;align-items:center;gap:.45rem}
+.sg-l li::before{content:'';width:4px;height:4px;background:var(--blue);border-radius:50%;flex-shrink:0}
+
+#contact{background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.contact-l p{font-size:.94rem;color:var(--ink-soft);font-weight:300;line-height:1.85;margin-bottom:1.75rem}
+.c-links{display:flex;flex-direction:column;gap:.8rem}
+.c-link{display:flex;align-items:center;gap:.9rem;padding:.95rem 1.1rem;border:1px solid rgba(17,24,39,.1);text-decoration:none;color:var(--ink);background:var(--warm);transition:all .2s}
+.c-link:hover{border-color:var(--blue);background:var(--blue-lt)}
+.c-icon{width:32px;height:32px;background:var(--navy);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:700;flex-shrink:0}
+.c-pl{font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)}
+.c-hd{font-size:.84rem;font-weight:500;color:var(--ink)}
+.contact-r{background:var(--navy);padding:2.5rem;position:relative;overflow:hidden}
+.contact-r::after{content:'';position:absolute;bottom:-40px;right:-40px;width:150px;height:150px;border:1px solid rgba(249,248,245,.05);border-radius:50%}
+.avail{display:inline-flex;align-items:center;gap:.45rem;font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;margin-bottom:1.1rem}
+.dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.2);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(74,222,128,.2)}50%{box-shadow:0 0 0 6px rgba(74,222,128,.07)}}
+.contact-r h3{font-family:var(--serif);font-size:1.5rem;color:var(--bg);margin-bottom:.8rem;line-height:1.28}
+.contact-r p{font-size:.85rem;color:rgba(249,248,245,.55);font-weight:300;line-height:1.75;margin-bottom:1.6rem}
+.c-meta{display:flex;flex-direction:column;gap:.45rem}
+.c-m{font-size:.74rem;color:rgba(249,248,245,.45);display:flex;gap:.4rem;flex-wrap:wrap}
+.c-m strong{color:rgba(249,248,245,.75);font-weight:500}
+
+footer{background:var(--navy);color:rgba(249,248,245,.28);padding:1.6rem 7vw;display:flex;justify-content:space-between;align-items:center;font-size:.72rem;border-top:1px solid rgba(249,248,245,.05)}
+footer a{color:rgba(249,248,245,.28);text-decoration:none}
+footer a:hover{color:#60a5fa}
+
+.r{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.r.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  #hero,.story-grid,#skills,#contact{grid-template-columns:1fr}
+  .hero-r,.p-metrics,.p-arr{display:none}
+  .hero-l{padding:4.5rem 6vw 3.5rem}
+  .proj-header,.proj-featured{grid-template-columns:1fr}
+  .proj{grid-template-columns:auto 1fr}
+  section{padding:4rem 6vw}
+  .nav-links{display:none}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .pf-num{display:none}
+  .lang-switch{right:3vw}
+  .pub-grid{grid-template-columns:1fr}
+}
+
+[data-es],[data-en]{display:none}
+.lang-es [data-es]{display:revert}
+.lang-en [data-en]{display:revert}
+span[data-es],span[data-en]{display:inline}
+.lang-es span[data-en]{display:none}
+.lang-en span[data-es]{display:none}
+</style>
+</head>
+<body class="lang-es">
+
+<div class="lang-switch">
+  <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<nav>
+  <a href="#hero" class="nav-logo">Camila Gámez</a>
+  <ul class="nav-links">
+    <li><a href="#story"><span data-es>Mi historia</span><span data-en>My story</span></a></li>
+    <li><a href="#projects"><span data-es>Proyectos</span><span data-en>Projects</span></a></li>
+    <li><a href="#publications"><span data-es>Publicaciones</span><span data-en>Publications</span></a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact"><span data-es>Contacto</span><span data-en>Contact</span></a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-l">
+    <p class="eyebrow">
+      <span data-es>Data Analyst · Remoto · Disponible ahora</span>
+      <span data-en>Data Analyst · Remote · Available now</span>
+    </p>
+    <h1 data-es>Los datos revelan<br>lo que las personas<br><em>realmente</em> necesitan.</h1>
+    <h1 data-en>Data reveals<br>what people<br><em>truly</em> need.</h1>
+    <p class="hero-p" data-es>
+      Yo convierto esa señal en decisiones con impacto. <strong>Soy Camila Gámez,</strong> analista de datos con experiencia en ingeniería, ventas y educación. Entiendo el lenguaje del negocio, identifico la causa raíz y traduzco análisis en acciones que los equipos pueden ejecutar.
+    </p>
+    <p class="hero-p" data-en>
+      I turn that signal into decisions with impact. <strong>I'm Camila Gámez,</strong> a data analyst with experience in engineering, sales, and education. I understand the language of business, identify root causes, and translate analysis into actions teams can act on.
+    </p>
+    <div class="industry-row">
+      <span class="ind-badge ind-b1">Retail</span>
+      <span class="ind-badge ind-b2">E-commerce</span>
+      <span class="ind-badge ind-b3">Wellness</span>
+      <span class="ind-badge ind-b4">EdTech</span>
+      <span class="ind-badge ind-b5">Tech / SaaS</span>
+    </div>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-dark"><span data-es>Ver proyectos →</span><span data-en>See projects →</span></a>
+      <a href="#contact" class="btn btn-line"><span data-es>Hablemos</span><span data-en>Let's talk</span></a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <p class="hero-quote">
+      <span data-es>"Los datos están fuera de nuestro control. La interpretación, no."</span>
+      <span data-en>"Data is outside our control. What we do with it isn't."</span>
+      <cite>— Camila Gámez, Data Analyst</cite>
+    </p>
+    <div class="stats">
+      <div class="st"><div class="st-n">97<em>%</em></div><div class="st-l">ROC-AUC · Churn model</div></div>
+      <div class="st"><div class="st-n">+18<em>%</em></div><div class="st-l">ROMI <span data-es>proyectado</span><span data-en>projected</span></div></div>
+      <div class="st"><div class="st-n">241<em>K</em></div><div class="st-l">Eventos · A/B Testing</div></div>
+      <div class="st"><div class="st-n">10.6<em>M</em></div><div class="st-l"><span data-es>Eventos analizados</span><span data-en>Events analyzed</span></div></div>
+    </div>
+    <div class="stack-bar">
+      <span class="pill">Python</span><span class="pill">SQL</span>
+      <span class="pill">Power BI</span><span class="pill">Tableau</span>
+      <span class="pill">Scikit-learn</span><span class="pill">A/B Testing</span>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="story-grid r">
+    <div class="story-text">
+      <p class="s-label"><span data-es>Mi historia</span><span data-en>My story</span></p>
+      <h2 data-es>Cuidar con precisión.<br>Servir con <em>amor.</em></h2>
+      <h2 data-en>Care with precision.<br>Show up with <em>heart.</em></h2>
+      <div data-es>
+        <p>Hace casi dos años, mi perrita Tata fue diagnosticada con diabetes. Ella siempre fue ágil, fuerte, persistente, con un carácter que no le pide permiso a nadie. Y de repente, necesitaba inyecciones, horarios exactos, mediciones constantes. Ese proceso me enseñó algo que no está en ningún libro: <strong>cuidar con precisión y servir con amor es lo que mantiene la esencia intacta.</strong> En ella lo aprendí. En los datos lo aplico.</p>
+        <div class="callout">Decidí resignificar ese dolor. Convertirlo en legado, el suyo en mi vida, y el mío en el mundo.</div>
+        <p>Vengo de ingeniería civil, ventas B2B, B2C y educación en industrias de Retail, E-commerce y Wellness. Sé hablarle a cada área en su propio idioma. Hoy soy analista de datos, y proceso con lógica y con empatía al mismo tiempo. Esa es mi ventaja. Entiendo la causa raíz y entrego algo que se puede ejecutar mañana.</p>
+      </div>
+      <div data-en>
+        <p>About two years ago, my dog Tata was diagnosed with diabetes. She was always agile, strong, relentless — the kind that never asks for permission. Suddenly, she needed injections, strict schedules, constant monitoring. That process taught me something no book ever could: <strong>caring with precision and showing up with love is what preserves what truly matters.</strong> I learned it from her. I apply it in data.</p>
+        <div class="callout">I chose to transform that pain into purpose. Her legacy in my life, and mine in the world.</div>
+        <p>I come from civil engineering, B2B and B2C sales, and education across Retail, E-commerce, and Wellness. I know how to speak each team's language. Today I'm a data analyst who thinks with logic and empathy at the same time. That's my edge. I understand root causes and deliver something you can act on tomorrow.</p>
+      </div>
+    </div>
+
+    <div class="story-r">
+      <div class="card">
+        <div class="card-t" data-es>Mis fortalezas aplicadas a datos</div>
+        <div class="card-t" data-en>My strengths applied to data</div>
+        <ul class="chips">
+          <li data-es>Conexión
+            <span>Detrás de cada número hay una persona. Leo patrones, pero también entiendo comportamientos, fricciones y decisiones humanas. Ahí es donde los datos cobran sentido.</span>
+          </li>
+          <li data-en>Connection
+            <span>Behind every number there's a person. I read patterns, but I also understand behaviors, frictions, and human decisions. That's where data starts to make sense.</span>
+          </li>
+          <li data-es>Voy a la raíz
+            <span>No me quedo en lo evidente. Descompongo el problema, cuestiono supuestos e identifico lo que realmente está generando el resultado. Ahí es donde empiezan las soluciones que sí cambian algo.</span>
+          </li>
+          <li data-en>Root-cause thinker
+            <span>I don't stop at the obvious. I break down the problem, challenge assumptions, and identify what's actually driving the result. That's where solutions that truly change something begin.</span>
+          </li>
+          <li data-es>Adaptabilidad
+            <span>Me adapto rápido porque sé leer contextos y hablar el lenguaje de cada área. Puedo moverme entre negocio, producto, operaciones o datos sin perder profundidad ni conexión.</span>
+          </li>
+          <li data-en>Adaptability
+            <span>I adapt quickly because I know how to read contexts and speak each area's language. I can move between business, product, operations, or data without losing depth or connection.</span>
+          </li>
+          <li data-es>Responsabilidad
+            <span>No entrego análisis a medias. Valido la calidad, conecto hallazgos con acción y llego con una propuesta clara, no solo con un problema señalado.</span>
+          </li>
+          <li data-en>Accountability
+            <span>I don't deliver half-done analysis. I validate quality, connect findings to action, and arrive with a clear proposal — not just a problem identified.</span>
+          </li>
+          <li data-es>Persistencia
+            <span>No suelto un problema hasta entenderlo. Si una vía falla, busco otra. Si una hipótesis cae, reformulo. Persistir, para mí, no es insistir por insistir: es seguir hasta encontrar una solución real.</span>
+          </li>
+          <li data-en>Persistence
+            <span>I don't let go of a problem until I understand it. If one path fails, I find another. If a hypothesis falls, I reframe. Persisting, for me, isn't stubbornness: it's staying the course until a real solution is found.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-t" data-es>Trayectoria</div>
+        <div class="card-t" data-en>Career path</div>
+        <div class="tl">
+          <div class="tl-i">
+            <div class="tl-y">2026</div>
+            <div>
+              <div class="tl-r" data-es>Data Analyst · Búsqueda activa</div>
+              <div class="tl-r" data-en>Data Analyst · Actively seeking</div>
+              <div class="tl-p">TripleTen · 16 <span data-es>proyectos reales</span><span data-en>real-world projects</span></div>
+            </div>
+          </div>
+          <div class="tl-i">
+            <div class="tl-y">2022</div>
+            <div>
+              <div class="tl-r" data-es>Real Estate · Administradora</div>
+              <div class="tl-r" data-en>Real Estate · Property Manager</div>
+              <div class="tl-p">+30% <span data-es>eficiencia operativa</span><span data-en>operational efficiency</span></div>
+            </div>
+          </div>
+          <div class="tl-i">
+            <div class="tl-y">2019</div>
+            <div>
+              <div class="tl-r" data-es>Ventas B2B · Nu Skin · Tconnecto</div>
+              <div class="tl-r" data-en>B2B Sales · Nu Skin · Tconnecto</div>
+              <div class="tl-p">+USD 495K <span data-es>en ventas analizadas</span><span data-en>in analyzed sales</span></div>
+            </div>
+          </div>
+          <div class="tl-i">
+            <div class="tl-y">2018</div>
+            <div>
+              <div class="tl-r" data-es>Docencia · Matemáticas y Finanzas</div>
+              <div class="tl-r" data-en>Teaching · Math and Finance</div>
+              <div class="tl-p"><span data-es>Especialización en Educación · U. Sergio Arboleda</span><span data-en>Education specialization · U. Sergio Arboleda</span></div>
+            </div>
+          </div>
+          <div class="tl-i">
+            <div class="tl-y">2012</div>
+            <div>
+              <div class="tl-r" data-es>Ingeniería Civil · Interventoría</div>
+              <div class="tl-r" data-en>Civil Engineering · Project oversight</div>
+              <div class="tl-p"><span data-es>Proyectos hasta USD 2M · Ruta del Sol</span><span data-en>Projects up to USD 2M · Ruta del Sol</span></div>
+            </div>
+          </div>
+          <div class="tl-i">
+            <div class="tl-y">2008</div>
+            <div>
+              <div class="tl-r">Universidad Nacional de Colombia</div>
+              <div class="tl-p"><span data-es>Ingeniería Civil · Bogotá</span><span data-en>Civil Engineering · Bogotá</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="proj-header r">
+    <div>
+      <p class="s-label"><span data-es>Proyectos</span><span data-en>Projects</span></p>
+      <h2 data-es>Análisis que<br>generan <em>decisiones.</em></h2>
+      <h2 data-en>Analysis that<br>drives <em>decisions.</em></h2>
+    </div>
+    <p data-es>La pregunta correcta antes de la herramienta correcta. Cada proyecto resuelve un problema real de negocio. Clic para ver el código y el análisis completo en el repositorio.</p>
+    <p data-en>The right question before the right tool. Each project solves a real business problem. Click to see the full code and analysis in the repository.</p>
+  </div>
+
+  <div class="proj-list">
+    <a href="https://github.com/camilagamez-co" target="_blank" class="proj-featured r">
+      <div style="position:relative;z-index:2">
+        <div class="pf-badge"><span data-es>Proyecto destacado · EdTech</span><span data-en>Featured project · EdTech</span></div>
+        <div class="pf-ind">EdTech · SaaS Metrics · <span data-es>Retención estudiantil</span><span data-en>Student retention</span></div>
+        <div class="pf-title" data-es>Retención y Deserción Estudiantil — OULAD</div>
+        <div class="pf-title" data-en>Student Retention and Dropout — OULAD</div>
+        <p class="pf-desc" data-es>32,593 estudiantes reales de la Open University. Un entorno virtual con 10.6M eventos de comportamiento. Encontré que 1 de cada 3 abandona su curso, y que ese abandono empieza en los primeros 10 días, cuando se rompe la conexión con el aprendizaje. Identifiqué señales de riesgo tempranas y entregué recomendaciones accionables de retención.</p>
+        <p class="pf-desc" data-en>32,593 real students from the Open University. A virtual learning environment with 10.6M behavioral events. I found that 1 in 3 students drops out, and that dropout begins in the first 10 days, when the connection to learning breaks. I identified early risk signals and delivered actionable retention recommendations.</p>
+        <p class="pf-desc" style="font-style:italic;opacity:.5">
+          <span data-es>"¿Qué señales observables en los primeros 30 días identifican a los estudiantes con mayor riesgo de abandonar?"</span>
+          <span data-en>"What observable signals in the first 30 days identify students most at risk of dropping out?"</span>
+        </p>
+        <div class="pf-tags">
+          <span class="pf-tag">SQL · SQLite</span><span class="pf-tag">Python</span>
+          <span class="pf-tag">Power BI</span><span class="pf-tag">SciPy</span>
+          <span class="pf-tag">Mann-Whitney U</span><span class="pf-tag">Churn Rate</span>
+          <span class="pf-tag">SaaS Metrics</span>
+        </div>
+      </div>
+      <div class="pf-metrics">
+        <div><div class="pf-m-v">31.2%</div><div class="pf-m-l">Churn Rate <span data-es>global</span><span data-en>overall</span></div></div>
+        <div><div class="pf-m-v">50.9%</div><div class="pf-m-l"><span data-es>Desertores antes del día 30</span><span data-en>Dropouts before day 30</span></div></div>
+        <div><div class="pf-m-v">6×</div><div class="pf-m-l"><span data-es>Más clics: distinción vs desertor</span><span data-en>More clicks: distinction vs dropout</span></div></div>
+        <div><div class="pf-m-v">10.6M</div><div class="pf-m-l"><span data-es>Eventos analizados</span><span data-en>Events analyzed</span></div></div>
+      </div>
+      <div class="pf-num">01</div>
+    </a>
+
+    <a href="https://github.com/camilagamez-co" target="_blank" class="proj r">
+      <div class="p-num">02</div>
+      <div class="p-body">
+        <div class="p-ind">Retail · E-commerce · Marketing Analytics</div>
+        <div class="p-title" data-es>Showz — Optimización de Marketing Spend</div>
+        <div class="p-title" data-en>Showz — Marketing Spend Optimization</div>
+        <p class="p-desc" data-es>USD 329K en inversión publicitaria con retorno negativo. Análisis de cohortes, LTV/CAC por canal y la pregunta que nadie estaba haciendo. ROMI llevado de un −7% a un +18% proyectado.</p>
+        <p class="p-desc" data-en>USD 329K in ad spend with negative returns. Cohort analysis, LTV/CAC by channel, and the question nobody was asking. ROMI moved from −7% to +18% projected.</p>
+        <div class="p-tags"><span class="p-tag">Python</span><span class="p-tag">Pandas</span><span class="p-tag">Plotly</span><span class="p-tag">Cohortes</span><span class="p-tag">LTV/CAC</span></div>
+      </div>
+      <div class="p-metrics">
+        <div><div class="p-m-v">+18%</div><div class="p-m-l">ROMI <span data-es>proyectado</span><span data-en>projected</span></div></div>
+        <div><div class="p-m-v">329K</div><div class="p-m-l">USD</div></div>
+      </div>
+      <div class="p-arr">→</div>
+    </a>
+
+    <a href="https://github.com/camilagamez-co" target="_blank" class="proj r">
+      <div class="p-num">03</div>
+      <div class="p-body">
+        <div class="p-ind">E-commerce · <span data-es>Experimentación</span><span data-en>Experimentation</span> · <span data-es>Conversión</span><span data-en>Conversion</span></div>
+        <div class="p-title" data-es>A/B Testing — Validación de Funnel de Compra</div>
+        <div class="p-title" data-en>A/B Testing — Purchase Funnel Validation</div>
+        <p class="p-desc" data-es>241K eventos de usuario. Priorización ICE, prueba estadística con corrección Bonferroni y recomendación respaldada en evidencia: no implementar el cambio, ahorrando costos innecesarios.</p>
+        <p class="p-desc" data-en>241K user events. ICE prioritization, statistical testing with Bonferroni correction, and an evidence-backed recommendation: do not implement the change, saving unnecessary costs.</p>
+        <div class="p-tags"><span class="p-tag">Python</span><span class="p-tag">SciPy</span><span class="p-tag">A/B Testing</span><span class="p-tag">Bonferroni</span><span class="p-tag">Funnel</span></div>
+      </div>
+      <div class="p-metrics">
+        <div><div class="p-m-v">241K</div><div class="p-m-l"><span data-es>Eventos analizados</span><span data-en>Events analyzed</span></div></div>
+        <div><div class="p-m-v">p&lt;.05</div><div class="p-m-l"><span data-es>Significancia validada</span><span data-en>Validated significance</span></div></div>
+      </div>
+      <div class="p-arr">→</div>
+    </a>
+
+    <a href="https://github.com/camilagamez-co" target="_blank" class="proj r">
+      <div class="p-num">04</div>
+      <div class="p-body">
+        <div class="p-ind">Wellness · Fitness · Machine Learning</div>
+        <div class="p-title" data-es>Model Fitness — Predicción de Churn</div>
+        <div class="p-title" data-en>Model Fitness — Churn Prediction</div>
+        <p class="p-desc" data-es>Gimnasio con alta rotación y sin sistema de predicción. Clasificación y K-means clustering para 5 segmentos de riesgo, desde 2.77% hasta 51.43% de churn, con acciones concretas de retención por perfil.</p>
+        <p class="p-desc" data-en>High-churn gym with no prediction system. Classification and K-means clustering into 5 risk segments, ranging from 2.77% to 51.43% churn, with concrete retention actions per profile.</p>
+        <div class="p-tags"><span class="p-tag">Scikit-learn</span><span class="p-tag">K-means</span><span class="p-tag">Python</span><span class="p-tag">Regresión Logística</span></div>
+      </div>
+      <div class="p-metrics">
+        <div><div class="p-m-v">97%</div><div class="p-m-l">ROC-AUC</div></div>
+        <div><div class="p-m-v">92%</div><div class="p-m-l">Accuracy</div></div>
+      </div>
+      <div class="p-arr">→</div>
+    </a>
+  </div>
+
+  <div style="text-align:center;margin-top:2.25rem" class="r">
+    <a href="https://github.com/camilagamez-co" target="_blank" class="btn btn-line">
+      <span data-es>Ver repositorio completo en GitHub →</span>
+      <span data-en>View full repository on GitHub →</span>
+    </a>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="r" style="text-align:center;margin-bottom:.5rem">
+    <p class="s-label" style="justify-content:center"><span data-es>Publicaciones</span><span data-en>Publications</span></p>
+    <h2 data-es>Datos con <em>narrativa.</em></h2>
+    <h2 data-en>Data with <em>narrative.</em></h2>
+  </div>
+  <p class="pub-intro r" data-es>Los datos por sí solos no transforman nada. Estas publicaciones muestran cómo convierto un problema real en conocimiento útil para quien lo vive.</p>
+  <p class="pub-intro r" data-en>Data alone doesn't transform anything. These publications show how I turn a real problem into useful knowledge for those living it.</p>
+
+  <div class="pub-grid r">
+    <div class="pub-card blue-accent">
+      <div class="pub-badge blue" data-es>Bienestar Animal</div>
+      <div class="pub-badge blue" data-en>Animal Wellness</div>
+      <div class="pub-title" data-es>Viviendo la Diabetes Canina: Guía práctica desde la experiencia de un tutor</div>
+      <div class="pub-title" data-en>Living with Canine Diabetes: A practical guide from a caregiver's experience</div>
+      <p class="pub-desc" data-es>90 páginas con protocolos, monitoreo, manejo de crisis y recursos, escritas desde el cuidado cotidiano. Nació de cuidar a Tata y entender que la información correcta, en el momento correcto, puede cambiar un resultado.</p>
+      <p class="pub-desc" data-en>90 pages of protocols, monitoring, crisis management and resources, written from the place of everyday care. Born from caring for Tata and understanding that the right information, at the right moment, can change an outcome.</p>
+      <div class="pub-actions">
+        <a href="assets/ebooks/diabetes-canina.pdf" download class="btn btn-dark btn-sm">
+          <span data-es>Descargar PDF</span><span data-en>Download PDF</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="pub-card teal-accent">
+      <div class="pub-badge teal" data-es>Bienestar / Wellness</div>
+      <div class="pub-badge teal" data-en>Wellness / Caregiving</div>
+      <div class="pub-title" data-es>¿Quién cuida al cuidador? Guía práctica para cuidar con amor y vivir con equilibrio</div>
+      <div class="pub-title" data-en>Who Takes Care of the Caregiver? A practical guide to caring with love and living in balance</div>
+      <p class="pub-desc" data-es>Un libro y audiolibro diseñado para quienes sostienen a otros y se postergan a sí mismos. Construido con ejercicios accionables y audios breves, porque el tiempo también es una forma de cuidado.</p>
+      <p class="pub-desc" data-en>A book and audiobook designed for those who hold others up and put themselves last. Built with actionable exercises and short audio segments, because time is also a form of care.</p>
+      <div class="pub-actions">
+        <a href="assets/ebooks/quien-cuida-al-cuidador.pdf" download class="btn btn-teal btn-sm">
+          <span data-es>Descargar PDF</span><span data-en>Download PDF</span>
+        </a>
+        <a href="https://www.youtube.com/playlist?list=PLsvsT-lPSj2auseqbOTNHZ4N8ZJTN2zv0" target="_blank" class="btn btn-outline-teal btn-sm">
+          <span data-es>Escuchar audiolibro</span><span data-en>Listen to audiobook</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO 9:16 -->
+<section id="video">
+  <p class="s-label"><span data-es>Presentación</span><span data-en>Introduction</span></p>
+  <h2 style="color:var(--bg)">
+    <span data-es>Mi historia en <em>90 segundos.</em></span>
+    <span data-en>My story in <em>90 seconds.</em></span>
+  </h2>
+  <p class="v-sub">
+    <span data-es>Sobre datos, propósito y por qué el impacto en las personas es lo que me mueve.</span>
+    <span data-en>About data, purpose, and why people's impact is what drives me.</span>
+  </p>
+  <div class="v-frame-wrap">
+    <div class="v-frame">
+      <iframe
+        src="https://player.vimeo.com/video/1184302863?autoplay=0&muted=0&loop=0&title=0&byline=0&portrait=0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-l r">
+    <p class="s-label"><span data-es>Habilidades</span><span data-en>Skills</span></p>
+    <h2 data-es>Stack técnico<br>con <em>propósito.</em></h2>
+    <h2 data-en>Technical stack<br>with <em>purpose.</em></h2>
+    <p data-es>Domino las herramientas. Lo que me diferencia es saber qué pregunta hacerle a los datos antes de escribir una sola consulta. Me apoyo en IA para potenciar mis análisis y mantenerme a la vanguardia.</p>
+    <p data-en>I'm fluent with the tools. What sets me apart is knowing what question to ask before writing a single query. I leverage AI to sharpen my analyses and stay current.</p>
+    <div class="big-q" data-es>"Analicé 32,593 estudiantes reales y encontré que 1 de cada 3 abandona antes del día 30. La señal empieza en los primeros 10 días, cuando se rompe la conexión con el aprendizaje."</div>
+    <div class="big-q" data-en>"I analyzed 32,593 real students and found that 1 in 3 drops out before day 30. The signal starts in the first 10 days, when the connection to learning breaks."</div>
+    <p class="cert-note" data-es>Certificaciones en curso: Power BI DA-100 · Google Data Analytics · Tableau Desktop Specialist · IBM AI SkillsBuild</p>
+    <p class="cert-note" data-en>Ongoing certifications: Power BI DA-100 · Google Data Analytics · Tableau Desktop Specialist · IBM AI SkillsBuild</p>
+  </div>
+  <div class="skills-grid r">
+    <div>
+      <div class="sg-t"><span data-es>Lenguajes y datos</span><span data-en>Languages and data</span></div>
+      <ul class="sg-l">
+        <li>Python · Pandas · NumPy · SciPy</li>
+        <li>SQL · PostgreSQL · MySQL · SQLite</li>
+        <li><span data-es>Estadística inferencial · Pruebas de hipótesis</span><span data-en>Inferential statistics · Hypothesis testing</span></li>
+        <li>Git · GitHub</li>
+      </ul>
+    </div>
+    <div>
+      <div class="sg-t"><span data-es>Visualización y BI</span><span data-en>Visualization and BI</span></div>
+      <ul class="sg-l">
+        <li>Power BI · DAX</li>
+        <li>Tableau</li>
+        <li>Matplotlib · Seaborn · Plotly</li>
+        <li>Streamlit</li>
+      </ul>
+    </div>
+    <div>
+      <div class="sg-t">Machine Learning</div>
+      <ul class="sg-l">
+        <li>Scikit-learn · <span data-es>Clasificación</span><span data-en>Classification</span></li>
+        <li>Clustering · K-means</li>
+        <li><span data-es>Cohortes · LTV/CAC · Churn</span><span data-en>Cohort analysis · LTV/CAC · Churn</span></li>
+        <li>EDA · ETL · A/B Testing</li>
+      </ul>
+    </div>
+    <div>
+      <div class="sg-t"><span data-es>Negocio y metodología</span><span data-en>Business and methodology</span></div>
+      <ul class="sg-l">
+        <li>Root cause analysis</li>
+        <li>Data storytelling</li>
+        <li>SaaS Metrics · Product Analytics</li>
+        <li>Scrum · Agile · JIRA · Kanban</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="r">
+  <div class="contact-l">
+    <p class="s-label"><span data-es>Contacto</span><span data-en>Contact</span></p>
+    <h2 data-es>¿Buscas una analista<br>que convierta datos<br>en <em>decisiones reales?</em></h2>
+    <h2 data-en>Looking for an analyst<br>who turns data into<br><em>real decisions?</em></h2>
+    <p data-es>Estoy en búsqueda activa de un rol remoto como Data Analyst en Retail, E-commerce, Wellness, EdTech o Tech/SaaS. Si lo que ves aquí resuena, 15 minutos pueden ser el siguiente paso.</p>
+    <p data-en>I'm actively looking for a remote Data Analyst role in Retail, E-commerce, Wellness, EdTech, or Tech/SaaS. If what you see here resonates, 15 minutes could be the next step.</p>
+    <div class="c-links">
+      <a href="https://linkedin.com/in/camila-gamez" target="_blank" class="c-link">
+        <div class="c-icon">in</div>
+        <div><div class="c-pl">LinkedIn</div><div class="c-hd">linkedin.com/in/camila-gamez</div></div>
+      </a>
+      <a href="https://github.com/camilagamez-co" target="_blank" class="c-link">
+        <div class="c-icon" style="font-size:.85rem">gh</div>
+        <div><div class="c-pl"><span data-es>GitHub · Repositorio</span><span data-en>GitHub · Repository</span></div><div class="c-hd">github.com/camilagamez-co</div></div>
+      </a>
+      <a href="mailto:camilagamez.co@gmail.com" class="c-link">
+        <div class="c-icon" style="font-size:.78rem">@</div>
+        <div><div class="c-pl">Email</div><div class="c-hd">camilagamez.co@gmail.com</div></div>
+      </a>
+      <a href="tel:+573170639102" class="c-link">
+        <div class="c-icon" style="font-size:.82rem">☎</div>
+        <div><div class="c-pl"><span data-es>WhatsApp / Llamada · Colombia</span><span data-en>WhatsApp / Call · Colombia</span></div><div class="c-hd">+57 317 063 9102</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-r">
+    <div class="avail"><div class="dot"></div><span data-es>Disponible inmediatamente</span><span data-en>Available immediately</span></div>
+    <h3 data-es>Lo que me mueve no son los datos, es el impacto que generan en las personas.</h3>
+    <h3 data-en>What drives me isn't data — it's the impact data creates on people's lives.</h3>
+    <p data-es>Combino lógica, empatía y entendimiento de negocio para ir a la causa raíz y convertir datos en decisiones que generan impacto desde mañana.</p>
+    <p data-en>I combine logic, empathy, and business understanding to get to the root cause and turn data into decisions that create impact starting tomorrow.</p>
+    <div class="c-meta">
+      <div class="c-m"><strong data-es>Modalidad:</strong><strong data-en>Work mode:</strong> <span>100% <span data-es>remoto</span><span data-en>remote</span></span></div>
+      <div class="c-m"><strong data-es>Zona horaria:</strong><strong data-en>Time zone:</strong> <span>Colombia · UTC−5 · <span data-es>Flexible</span><span data-en>Flexible</span></span></div>
+      <div class="c-m"><strong data-es>Idiomas:</strong><strong data-en>Languages:</strong> <span><span data-es>Español nativo · Inglés B1 (en mejora activa)</span><span data-en>Native Spanish · English B1 (actively improving)</span></span></div>
+      <div class="c-m"><strong data-es>Industrias:</strong><strong data-en>Industries:</strong> <span>Retail · E-commerce · Wellness · EdTech · Tech/SaaS</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Camila Gámez — Data Analyst</span>
+  <a href="#hero"><span data-es>↑ Volver arriba</span><span data-en>↑ Back to top</span></a>
+</footer>
+
+<script>
+function setLang(l){
+  document.body.className='lang-'+l;
+  document.getElementById('html-root').lang=l==='es'?'es':'en';
+  document.getElementById('btn-es').classList.toggle('active',l==='es');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+}
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const d=parseInt(x.target.dataset.d||0);setTimeout(()=>x.target.classList.add('in'),d)}})},{threshold:.08});
+document.querySelectorAll('.r').forEach((el,i)=>{el.dataset.d=(i%5)*75;obs.observe(el)});
+</script>
+</body>
+</html>
